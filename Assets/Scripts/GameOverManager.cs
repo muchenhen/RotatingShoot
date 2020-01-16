@@ -11,9 +11,11 @@ public class GameOverManager : MonoBehaviour
     public GameObject player;
     public GameObject victory;
     public GameObject failure;
-
+    public Score score;
+    public GameObject star2;
     public float fadeDuration = 2f;
 
+    int star2Aim = 10;
     float timer = 0f;
 
     // Start is called before the first frame update
@@ -31,6 +33,10 @@ public class GameOverManager : MonoBehaviour
             timer = timer+=Time.deltaTime;
             victory.GetComponent<Image>().color = new Color(1,1,1, timer / fadeDuration);
             victory.GetComponentInChildren<Image>().color = new Color(1, 1, 1, timer / fadeDuration);
+            if(score.badNums.Length < star2Aim)
+            {
+                star2.SetActive(true);
+            }
         }
         if(!player)
         {

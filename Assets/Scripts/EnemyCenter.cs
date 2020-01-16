@@ -33,6 +33,9 @@ public class EnemyCenter : MonoBehaviour
 
     public bool IsOver = false;
 
+    public DeadLine deadLine;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,9 +61,10 @@ public class EnemyCenter : MonoBehaviour
         colorPerHit.a = 0;
 
         rimColorPerHit = (colorBullet - rimColor) / 100;
-        rimColorPerHit.a = 0; 
+        rimColorPerHit.a = 0;
 
 
+        
     }
 
     // Update is called once per frame
@@ -74,10 +78,11 @@ public class EnemyCenter : MonoBehaviour
     {
         if(other.tag == ("Bullet"))
         {
+            deadLine.WidthReset();
             ColorChange();
             if (health <= maxHealth)
             {
-                health += 1f;
+                health += bullet.damage;
             }
             else
             {
@@ -86,6 +91,7 @@ public class EnemyCenter : MonoBehaviour
                 material.SetColor("_RimColor", colorBullet);
                 IsOver = true;
             }
+
         }
         else
         {
@@ -111,4 +117,5 @@ public class EnemyCenter : MonoBehaviour
             return;
         }
     }
+
 }

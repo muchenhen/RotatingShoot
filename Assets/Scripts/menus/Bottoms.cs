@@ -6,7 +6,7 @@ using UnityEditor;
 public class Bottoms : MonoBehaviour
 {
     [SerializeField]
-    private int MaxLevel = 4;
+    private int MaxLevel = 12;
     public void OnStart()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(2);
@@ -22,7 +22,7 @@ public class Bottoms : MonoBehaviour
     public void OnQuit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+       // UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void OnNext()

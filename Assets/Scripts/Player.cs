@@ -7,16 +7,18 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    GameObject Bullet;
+    private GameObject Bullet;
 
     [SerializeField]
     float speed = 5f;
 
     [SerializeField]
     Screen realScreen;
-    
 
-    public int Power;
+    [SerializeField]
+    private DeadLine deadline;
+
+    //public int Power;
     public float ShootDelayTime;
     public ParticleSystem SuperEvilDeath;
 
@@ -42,6 +44,10 @@ public class Player : MonoBehaviour
         if(timer >=1)
         {
             Move();
+        }
+        if(deadline.width < 0)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -93,5 +99,6 @@ public class Player : MonoBehaviour
             return;
         }
     }
+
 
 }

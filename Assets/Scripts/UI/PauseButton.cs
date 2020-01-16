@@ -47,7 +47,7 @@ public class PauseButton : MonoBehaviour
     public void OnQuit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void OnRestart()
